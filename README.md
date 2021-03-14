@@ -5,4 +5,4 @@
 ### Professor: Dr. Sadegh Raeisi
 
 Group Members:
-Yasamin Sadat Panahi, Asra Rezafadaei, Parsa Rangriz
+Yasamin Panahi, Asra Rezafadaei, Parsa Rangriz
