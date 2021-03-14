@@ -57,6 +57,7 @@ for i=1:N
         mio{i} = X_cell{i};
     end
 end
+
 %% One dimentional Quantum Ising model & Data generation:
 
 %Desired Quantities:
@@ -150,7 +151,7 @@ ylabel('<S_x>');
 xlabel('h');
 grid on
 
-%% (expectation values for mio_x)
+%% (expectation values for mio_x (vs sites))
 figure(4)
 x_plot=linspace(1,N-1,N-1);
 plot(x_plot,exp_mio(2,1:N-1),'-*');
@@ -167,7 +168,7 @@ ylabel('<mio_l>');
 xlabel('Number of sites');
 grid on
 
-%% (expectation values for mio_x)
+%% (expectation values for mio_x (vs h))
 figure(5)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,exp_mio(:,1),'-*');
