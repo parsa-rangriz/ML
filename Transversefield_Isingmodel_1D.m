@@ -39,7 +39,7 @@ for i=1:N
     end
 end
 
-%% Construction of mu Matrices
+%% Construction of mio Matrices
 mio = cell(1,N);
 X_cell = cell(1,N); X_cell{1} = X; I_cell=cell(1,N);
 for i=2:N
@@ -93,7 +93,7 @@ for h=first_h:steps:last_h
     Energy_gap(k,1) = abs(energy(3) - G_Energy(:,k)); %Energy gap
     G_State(:,k) = States(:,1);  %Ground state wavefunction
     norm = abs(G_State(:,k)'*G_State(:,k));
-    G_State(:,k)= G_State(:,k)/norm; %normalization
+    G_State(:,k)= G_State(:,k)/norm;%normalization
     
     %===========================
     %   Entanglemennt Entropy         
@@ -122,11 +122,11 @@ for h=first_h:steps:last_h
         exp_mio(k,i) = (G_State(:,k)')*mio{i}*(G_State(:,k));
     end 
     G_Data(k,:) = reshape(G_State(:,k),1,2^N);
-    Datas(k+1,1:Nz) = corr_SzSz(k,:);
-    Datas(k+1,Nz+1) = exp_Sx(k,1); 
-    Datas(k+1,Nz+2:Nz+12) = exp_mio(k,1:N-1);
-    Datas(k+1,Nz+13) = Energy_gap(k,1);
-    Datas(k+1,Nz+14:Nz+24) = Entanglemennt_Entropy(k,:);
+    Datas(k+1,1:Nz) = corr_SzSz(k,:);%66
+    Datas(k+1,Nz+1) = exp_Sx(k,1);%67 
+    Datas(k+1,Nz+2:Nz+12) = exp_mio(k,1:N-1); %78
+    Datas(k+1,Nz+13) = Energy_gap(k,1); %79
+    Datas(k+1,Nz+14:Nz+24) = Entanglemennt_Entropy(k,:);%90
     Datas(k+1,Nz+25:Nf-1) = G_Data(k,:);
     
 end
@@ -143,6 +143,7 @@ plot(x_plot,corr_SzSz(16,:),'-*','DisplayName','h=1.5');plot(x_plot,corr_SzSz(21
 plot(x_plot,corr_SzSz(31,:),'-*','DisplayName','h=3');plot(x_plot,corr_SzSz(41,:),'-*','DisplayName','h=4');
 plot(x_plot,corr_SzSz(51,:),'-*','DisplayName','h=5');hold all
 t=title('Correlation Functions(S_zS_z)');
+set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([1 Nz])
 ylabel({'$<\sigma_z^i \sigma_z^{i+1}> - <\sigma_z^i><\sigma_z^{i+1}>$'},'Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('Number of sites');
@@ -162,6 +163,7 @@ plot(x_plot,corr_SzSz(31,1:N-1),'-s','MarkerEdgeColor',	[0.6350, 0.0780, 0.1840]
 plot(x_plot,corr_SzSz(41,1:N-1),'-s','MarkerEdgeColor',[0, 0.5, 0],'MarkerFaceColor',[0, 0.5, 0],'DisplayName','h=4');
 plot(x_plot,corr_SzSz(51,1:N-1),'-s','MarkerEdgeColor',[0, 0.75, 0.75],'MarkerFaceColor',[0, 0.75, 0.75],'DisplayName','h=5');hold all
 t=title('Correlation Functions');
+set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([1 N-1])
 ylabel({'$<\sigma_z^1 \sigma_z^{i+1}> - <\sigma_z^1><\sigma_z^{i+1}>$'},'Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('Number of sites');
@@ -181,6 +183,8 @@ plot(x_plot,exp_mio(41,1:N-1),'-s','MarkerEdgeColor',[0, 0.75, 0.75],'MarkerFace
 plot(x_plot,exp_mio(51,1:N-1),'-s','MarkerEdgeColor',[0.9290, 0.6940, 0.1250],'MarkerFaceColor',[0.9290, 0.6940, 0.1250],'DisplayName','h=5');
 hold all
 xlim([1 N-1])
+t=title('Expectation values for \mu_l');
+set(0,'DefaultAxesTitleFontWeight','normal');
 ylabel('$<\mu_l>$','Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('Number of sites');
 
@@ -195,8 +199,11 @@ plot(h_plot,exp_mio(:,4),'-*','DisplayName','l=4');plot(h_plot,exp_mio(:,5),'-*'
 plot(h_plot,exp_mio(:,6),'-*','DisplayName','l=6');plot(h_plot,exp_mio(:,7),'-*','DisplayName','l=7');
 plot(h_plot,exp_mio(:,8),'-*','DisplayName','l=8');plot(h_plot,exp_mio(:,9),'-*','DisplayName','l=9');
 plot(h_plot,exp_mio(:,10),'-*','DisplayName','l=10');plot(h_plot,exp_mio(:,11),'-*','DisplayName','l=11');
+xline(1,'--k');
 hold all
 xlim([0 last_h])
+t=title('Expectation values for \mu_l');
+set(0,'DefaultAxesTitleFontWeight','normal');
 ylabel('$<\mu_l>$','Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('h');
 
@@ -204,7 +211,9 @@ xlabel('h');
 figure(5)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,corr_SzSz(:,1),'-s','MarkerEdgeColor','b','MarkerFaceColor',[0, 0.75, 0.75]);
+xline(1,'--k');
 t=title('Correlation Functions');
+set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([0 last_h])
 ylabel({'$<\sigma_z^1 \sigma_z^{2}> - <\sigma_z^1><\sigma_z^{2}>$'},'Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('h');
@@ -220,7 +229,8 @@ plot(x_plot,Entanglemennt_Entropy(21,:),'-s','MarkerEdgeColor',[0.4660, 0.6740, 
 plot(x_plot,Entanglemennt_Entropy(31,:),'-s','MarkerEdgeColor',	[0.75, 0, 0.75],'MarkerFaceColor',	[0.75, 0, 0.75],'DisplayName','h=3');
 plot(x_plot,Entanglemennt_Entropy(41,:),'-s','MarkerEdgeColor',[0, 0.75, 0.75],'MarkerFaceColor',[0, 0.75, 0.75],'DisplayName','h=4');
 plot(x_plot,Entanglemennt_Entropy(51,:),'-s','MarkerEdgeColor',[0.9290, 0.6940, 0.1250],'MarkerFaceColor',[0.9290, 0.6940, 0.1250],'DisplayName','h=5');hold all
-t=title('Entanglemennt Entropy');
+t=title('Entanglement Entropy');
+set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([1 N-1])
 ylabel('S');
 xlabel('size of subsystem');
@@ -229,7 +239,9 @@ xlabel('size of subsystem');
 figure(7)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,Energy_gap(:,1),'-s','MarkerEdgeColor','b','MarkerFaceColor',[0, 0.75, 0.75]);
-t=title('Energy gap');
+xline(1,'--k');
+t=title('Energy difference');
+set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([0 last_h])
 ylabel('|E_2 - E_0|');
 xlabel('h');
@@ -244,12 +256,23 @@ plot(h_plot,Entanglemennt_Entropy(:,4),'-*','DisplayName','size=4');plot(h_plot,
 plot(h_plot,Entanglemennt_Entropy(:,6),'-*','DisplayName','size=6');plot(h_plot,Entanglemennt_Entropy(:,7),'-*','DisplayName','size=7');
 plot(h_plot,Entanglemennt_Entropy(:,8),'-*','DisplayName','size=8');plot(h_plot,Entanglemennt_Entropy(:,9),'-*','DisplayName','size=9');
 plot(h_plot,Entanglemennt_Entropy(:,10),'-*','DisplayName','size=10');plot(h_plot,Entanglemennt_Entropy(:,11),'-*','DisplayName','size=11');
+xline(1,'--k');
 hold all
-t=title('Entanglemennt Entropy');
+t=title('Entanglement Entropy');
+set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([0 last_h])
 ylabel('S');
 xlabel('h');
 %%
+figure(9)
+h_plot=linspace(0,last_h,Ns);
+plot(h_plot,exp_Sx(:,1),'-s','MarkerEdgeColor','b','MarkerFaceColor',[0, 0.75, 0.75]);
+xline(1,'--k');
+xlim([0 last_h])
+t=title('Expectation values for \sigma_x');
+set(0,'DefaultAxesTitleFontWeight','normal');
+ylabel('$<\sigma_x>$','Interpreter','latex','FontSize',15,'FontWeight','bold');
+xlabel('h');
 toc
-%csvwrite('Data_XY.csv',Datas);
+csvwrite('Data_XY.csv',Datas);
 
