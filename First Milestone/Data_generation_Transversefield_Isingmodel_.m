@@ -13,7 +13,7 @@ bnd = 1; %periodic bc = 1 & %open bc = 0
 sigma_x = [0 1;1 0];sigma_y = [0 -1i;1i 0];sigma_z = [1 0;0 -1];I = eye(2);
 X = sparse(sigma_x);Y = sparse(sigma_y);Z = sparse(sigma_z);I = sparse(I);
 
-first_h = 0; last_h = 7; steps = 0.1;
+first_h = 0; last_h = 7; steps = 0.1; %For Data generation, steps = 0.01
 Ns = ((last_h - first_h)/steps)+1; %Number of samples
 Nz = (N*(N-1))/2; %Number of correlation functions
 Nf = Nz + 2*N + 2^N +1;   %Number of features
