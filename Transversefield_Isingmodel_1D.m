@@ -2,7 +2,7 @@ clc
 clear
 tic
 %=============================================================
-%           Transverse-field Ising model              
+%            1D Transverse-field Ising model             
 %=============================================================
 %Parameters:
 N = 12; %number of sites
@@ -70,8 +70,7 @@ RDM = cell(1,N-1);         %Reduced Density matrix for each subsystem
 Entanglemennt_Entropy = zeros(Ns,N-1); %Entanglemennt_Entropy
 Datas = zeros(Ns+1,Nf);    %Datas in form of (X,Y)
 k=0; M =0;
-
-%Main Loop:
+%Main Loop
 for h=first_h:steps:last_h
     k=k+1;
     
@@ -127,12 +126,13 @@ for h=first_h:steps:last_h
     Datas(k+1,Nz+2:Nz+12) = exp_mio(k,1:N-1); %78
     Datas(k+1,Nz+13) = Energy_gap(k,1); %79
     Datas(k+1,Nz+14:Nz+24) = Entanglemennt_Entropy(k,:);%90
-    Datas(k+1,Nz+25:Nf-1) = G_Data(k,:);
+    Datas(k+1,Nz+25:Nf-1) = G_Data(k,:); %4186
     
 end
-Datas(2:Ns+1,Nf) = y;
+Datas(2:Ns+1,Nf) = y;%4187
 
 %% plots:
+%%(All SzSz correlation functions)
 figure(1)
 x_plot=linspace(1,Nz,Nz);
 plot(x_plot,corr_SzSz(6,:),'-*');
@@ -148,7 +148,7 @@ xlim([1 Nz])
 ylabel({'$<\sigma_z^i \sigma_z^{i+1}> - <\sigma_z^i><\sigma_z^{i+1}>$'},'Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('Number of sites');
 
-%% (SzSz correlation functions for l = 1)
+%% (SzSz correlation functions for first site)
 figure(2)
 x_plot=linspace(1,N-1,N-1);
 plot(x_plot,corr_SzSz(6,1:N-1),'-s','MarkerEdgeColor',[0, 0.4470, 0.7410],'MarkerFaceColor',[0, 0.4470, 0.7410]);
@@ -168,7 +168,7 @@ xlim([1 N-1])
 ylabel({'$<\sigma_z^1 \sigma_z^{i+1}> - <\sigma_z^1><\sigma_z^{i+1}>$'},'Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('Number of sites');
 
-%% (expectation values for mio_x)
+%% (Expectation values for mio_x vs sites)
 figure(3)
 x_plot=linspace(1,N-1,N-1);
 plot(x_plot,exp_mio(6,1:N-1),'-s','MarkerEdgeColor',[0, 0.4470, 0.7410],'MarkerFaceColor',[0, 0.4470, 0.7410]);
@@ -188,7 +188,7 @@ set(0,'DefaultAxesTitleFontWeight','normal');
 ylabel('$<\mu_l>$','Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('Number of sites');
 
-%% (expectation values for mio_x)
+%% (Expectation values for mio_x vs h)
 figure(4)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,exp_mio(:,1),'-*');
@@ -199,7 +199,7 @@ plot(h_plot,exp_mio(:,4),'-*','DisplayName','l=4');plot(h_plot,exp_mio(:,5),'-*'
 plot(h_plot,exp_mio(:,6),'-*','DisplayName','l=6');plot(h_plot,exp_mio(:,7),'-*','DisplayName','l=7');
 plot(h_plot,exp_mio(:,8),'-*','DisplayName','l=8');plot(h_plot,exp_mio(:,9),'-*','DisplayName','l=9');
 plot(h_plot,exp_mio(:,10),'-*','DisplayName','l=10');plot(h_plot,exp_mio(:,11),'-*','DisplayName','l=11');
-xline(1,'--k');
+xline(1,'--k','DisplayName','h = 1');
 hold all
 xlim([0 last_h])
 t=title('Expectation values for \mu_l');
@@ -218,7 +218,7 @@ xlim([0 last_h])
 ylabel({'$<\sigma_z^1 \sigma_z^{2}> - <\sigma_z^1><\sigma_z^{2}>$'},'Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('h');
 
-%% Entanglemennt_Entropy vs subsystem
+%% (Entanglemennt_Entropy vs size of subsystem)
 figure(6)
 x_plot = linspace(1,N-1,N-1);
 plot(x_plot,Entanglemennt_Entropy(11,:),'-s','MarkerEdgeColor',[0, 0.4470, 0.7410],'MarkerFaceColor',[0, 0.4470, 0.7410]);
@@ -235,7 +235,7 @@ xlim([1 N-1])
 ylabel('S');
 xlabel('size of subsystem');
 
-%% Energy gap
+%% (Energy difference)
 figure(7)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,Energy_gap(:,1),'-s','MarkerEdgeColor','b','MarkerFaceColor',[0, 0.75, 0.75]);
@@ -245,7 +245,8 @@ set(0,'DefaultAxesTitleFontWeight','normal');
 xlim([0 last_h])
 ylabel('|E_2 - E_0|');
 xlabel('h');
-%% Entanglemennt_Entropy
+
+%% (Entanglemennt_Entropy vs h)
 figure(8)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,Entanglemennt_Entropy(:,1),'-*');
@@ -256,7 +257,7 @@ plot(h_plot,Entanglemennt_Entropy(:,4),'-*','DisplayName','size=4');plot(h_plot,
 plot(h_plot,Entanglemennt_Entropy(:,6),'-*','DisplayName','size=6');plot(h_plot,Entanglemennt_Entropy(:,7),'-*','DisplayName','size=7');
 plot(h_plot,Entanglemennt_Entropy(:,8),'-*','DisplayName','size=8');plot(h_plot,Entanglemennt_Entropy(:,9),'-*','DisplayName','size=9');
 plot(h_plot,Entanglemennt_Entropy(:,10),'-*','DisplayName','size=10');plot(h_plot,Entanglemennt_Entropy(:,11),'-*','DisplayName','size=11');
-xline(1,'--k');
+xline(1,'--k','DisplayName','h = 1');
 hold all
 t=title('Entanglement Entropy');
 set(0,'DefaultAxesTitleFontWeight','normal');
@@ -264,6 +265,7 @@ xlim([0 last_h])
 ylabel('S');
 xlabel('h');
 %%
+%%(Expectation values for S_x vs h)
 figure(9)
 h_plot=linspace(0,last_h,Ns);
 plot(h_plot,exp_Sx(:,1),'-s','MarkerEdgeColor','b','MarkerFaceColor',[0, 0.75, 0.75]);
@@ -275,4 +277,3 @@ ylabel('$<\sigma_x>$','Interpreter','latex','FontSize',15,'FontWeight','bold');
 xlabel('h');
 toc
 csvwrite('Data_XY.csv',Datas);
-
