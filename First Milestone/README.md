@@ -12,4 +12,4 @@ Our project for this phase has some parts:
 - Data Analysis: Parsa Rangriz
 - Report Writing: Parsa Rangriz - Yasamin Panahi - Asra Rezafadaei
 
-*The last file that we uploaded here as a final one is coded by Yasamin Panahi but Parsa Rangriz and Asra Rezafadaei code their own solution for data generation.
+*The last file that we uploaded here as a final one is coded by Yasamin Panahi but Parsa Rangriz and Asra Rezafadaei coded their own solution for data generation.
