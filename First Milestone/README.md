@@ -1,4 +1,4 @@
-# Machine Learning for Phase Transition in 1D Transverse Field Ising model
+# Machine Learning for Phase Transition in 1D Transverse Field Ising Model
 
 ### Yasamin Panahi, Asra Rezafadaei, Parsa Rangriz
 
@@ -13,3 +13,5 @@ Our project for this phase has some parts:
 - Report Writing: Parsa Rangriz - Yasamin Panahi - Asra Rezafadaei
 
 *The last file that we uploaded here as a final one is coded by Yasamin Panahi but Parsa Rangriz and Asra Rezafadaei coded their own solution for data generation.
+
+You can find the final files here (in this folder) and the draft ones in the previous path.
