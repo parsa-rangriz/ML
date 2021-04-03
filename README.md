@@ -8,4 +8,3 @@ In this project, we seek to find the phase transition point in one dimensional T
 Group Members:
 Yasamin Panahi, Asra Rezafadaei, Parsa Rangriz
 
-## Project: Phase Transition of 1D Transverse Field Ising Chain
