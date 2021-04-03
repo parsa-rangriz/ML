@@ -2,6 +2,17 @@
 
 ### Yasamin Panahi, Asra Rezafadaei, Parsa Rangriz
 
+## Genaral information
+For the first milestone, we solved 1D Transverse-field Ising model Numerically in MATLAB using Exact Diagonalization (ED) technique, we calculated quantities such as spin - spin Correlation functions, Entanglement entropy, Expectation values of different spin operators, Energy difference and Wavefunction numbers and then we collected them as our data set.
+
+### Files:
+ - Code for numerical solution and data generation is: Data_generation_Transversefiled_Isingmodel.m
+ - Data in csv form is: Data_XY.zip
+ - Different plots from the data generation code is: DataPlots.zip
+ - Code for data analysis is: Data Analysis.ipynb
+ - Final Report, containing all essential information and explanations is: ML_First Milestone Report.pdf
+ - PDF of the related articles to our project is: Related Articles.zip
+
 ## What each member did?
 
 - Analytical Exact Solution - Theory: Parsa Rangriz
