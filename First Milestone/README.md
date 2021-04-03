@@ -10,8 +10,8 @@ For the first milestone, we solved 1D Transverse-field Ising model Numerically i
  - Data in csv form: Data_XY.zip (https://github.com/rangriz99/ML/blob/master/First%20Milestone/Data_XY.zip)
  - Different plots from the data generation code: DataPlots.zip (https://github.com/rangriz99/ML/blob/master/First%20Milestone/DataPlots.zip)
  - Code for data analysis: Data Analysis.ipynb (https://github.com/rangriz99/ML/blob/master/First%20Milestone/Data%20Analysis.ipynb)
- - Final Report, containing all essential information and explanations: ML_First Milestone Report.pdf(https://github.com/rangriz99/ML/blob/master/First%20Milestone/ML_First%20Milestone%20Report.pdf)
- - PDF of the related articles to our project: Related Articles.zip(https://github.com/rangriz99/ML/blob/master/First%20Milestone/Related%20Articles.zip)
+ - Final Report, containing all essential information and explanations: ML_First Milestone Report.pdf (https://github.com/rangriz99/ML/blob/master/First%20Milestone/ML_First%20Milestone%20Report.pdf)
+ - PDF of the related articles to our project: Related Articles.zip (https://github.com/rangriz99/ML/blob/master/First%20Milestone/Related%20Articles.zip)
 
 ## What each member did?
 
