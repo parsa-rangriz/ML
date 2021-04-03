@@ -8,8 +8,7 @@ For the first milestone, we solved 1D Transverse-field Ising model Numerically i
 ### Files:
  - Code for numerical solution and data generation: Data_generation_Transversefiled_Isingmodel.m
  - Data in csv form: Data_XY.zip
- - Different plots from the data generation code: DataPlots.zip
- - https://github.com/rangriz99/ML/blob/master/First%20Milestone/DataPlots.zip
+ - Different plots from the data generation code: DataPlots.zip (https://github.com/rangriz99/ML/blob/master/First%20Milestone/DataPlots.zip)
  - Code for data analysis: Data Analysis.ipynb
  - Final Report, containing all essential information and explanations: ML_First Milestone Report.pdf
  - PDF of the related articles to our project: Related Articles.zip
