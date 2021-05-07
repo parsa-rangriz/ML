@@ -8,8 +8,7 @@ From the first part of the project, we have the data-set and want to apply the t
 ### Files:
  - Code for Traditional Techniques: Traditional Techniques  ()
  - Final Report, containing all essential information and explanations: ML_Second Milestone Report.pdf ()
- - PDF of the related articles to our project: Related Articles.zip (https://github.com/rangriz99/ML/blob/master/First%20Milestone/Related%20Articles.zip)
-
+ 
 ## What each member did?
 
 - Training, Evalutation and Tuning: Yasamin Panahi, Asra Rezafadaei, Parsa Rangriz
