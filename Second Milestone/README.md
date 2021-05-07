@@ -7,7 +7,7 @@ From the first part of the project, we have the data-set and want to apply the t
 
 ### Files:
  - Code for Traditional Techniques: Milestone 2 (Traditional Techniques).ipynb  (https://github.com/rangriz99/ML/blob/master/Second%20Milestone/Milestone%202%20(Traditional%20Techniques).ipynb)
- - Final Report, containing all essential information and explanations: Second_Milestone .pdf.zip(https://github.com/rangriz99/ML/blob/master/Second%20Milestone/Second_Milestone.pdf.zip)
+ - Final Report, containing all essential information and explanations: Milestone 2 (Traditional Techniques) - Report .zip(https://github.com/rangriz99/ML/blob/master/Second%20Milestone/Milestone%202%20(Traditional%20Techniques)%20-%20Report.zip)
  
 ## What each member did?
 
